@@ -82,9 +82,9 @@ var light = new THREE.PointLight(0xff00ff);
 light.position.set(0, 0, 100);
 scene.add(light);
 
-const pointLight = new THREE.PointLight(0xffffff, 30, 1000);
-pointLight.position.set(900, 50, 1500);
-
+const pointLight = new THREE.DirectionalLight(0xffffff, 0.25);
+pointLight.position.set(2000, 50, 3000, 2);
+// const pointLightHelper = new THREE.DirectionalLightHelper(pointLight, 100);
 const blueLight = new THREE.PointLight(0x062d89, 30, 425, 1.7);
 blueLight.position.set(0, 0, 250);
 
@@ -93,6 +93,7 @@ orangeLight.position.set(0, 0, 150);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, "0.25");
 scene.add(pointLight, blueLight, orangeLight, ambientLight);
+// scene.add(pointLightHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enabled = false;
