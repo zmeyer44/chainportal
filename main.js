@@ -1,7 +1,8 @@
 import "./style.css";
 
 import * as THREE from "three";
-
+import smoke from "./smoke.png";
+import space from "./space.jpg";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const scene = new THREE.Scene();
@@ -37,7 +38,7 @@ particleSetup();
 function particleSetup() {
   let loader = new THREE.TextureLoader();
 
-  loader.load("smoke.png", function (texture) {
+  loader.load(smoke, function (texture) {
     let portalGeo = new THREE.PlaneBufferGeometry(350, 350);
     let portalMaterial = new THREE.MeshStandardMaterial({
       map: texture,
@@ -169,7 +170,7 @@ const particlesMesh = new THREE.Points(
 );
 scene.add(particlesMesh);
 
-const spaceTexture = new THREE.TextureLoader().load("space.jpg");
+const spaceTexture = new THREE.TextureLoader().load(space);
 scene.background = spaceTexture;
 
 document.addEventListener("mousemove", animateParticles);
