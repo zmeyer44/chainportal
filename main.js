@@ -83,8 +83,8 @@ light.position.set(0, 0, 100);
 scene.add(light);
 
 const pointLight = new THREE.DirectionalLight(0xffffff, 0.25);
-pointLight.position.set(2000, 50, 3000, 2);
-// const pointLightHelper = new THREE.DirectionalLightHelper(pointLight, 100);
+pointLight.position.set(2300, 50, 3000, 2);
+const pointLightHelper = new THREE.DirectionalLightHelper(pointLight, 100);
 const blueLight = new THREE.PointLight(0x062d89, 30, 425, 1.7);
 blueLight.position.set(0, 0, 250);
 
@@ -104,7 +104,7 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function addBlock() {
-  let size = 25 + Math.random() * 50;
+  let size = 12 + Math.random() * 25;
   const geometry = new THREE.BoxGeometry(size, size, size);
   const material = new THREE.MeshStandardMaterial({ color: 0x101929 });
   material.metalness = 0.7;
@@ -114,7 +114,7 @@ function addBlock() {
 
   const [x, y] = Array(2)
     .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(600));
+    .map(() => THREE.MathUtils.randFloatSpread(300));
 
   block.position.set(x, y);
   block.position.z = -100;
@@ -235,8 +235,8 @@ function animate() {
   }
 
   Blocks.forEach((p) => {
-    p.position.z += 30;
-    p.position.x += 14;
+    p.position.z += 15;
+    p.position.x += 6;
   });
 
   addStar();
